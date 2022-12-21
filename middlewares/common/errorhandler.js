@@ -7,9 +7,17 @@ function notFoundghandler(req, res, next) {
 
 // Default Error Handler
 function eroorhandler(err, req, res, next) {
-  res.render("error", {
-    title: "Error Page",
-  });
+  res.locals.error =
+    process.env.NODE_ENV === "development" ? err : { message: err.message };
+  res.status(err.status || 500);
+
+  if (res.locals.html) {
+    res.render("error", {
+      title: "Error Page",
+    });
+  } else {
+    res.json(res.locals.error);
+  }
 }
 
 module.exports = {
