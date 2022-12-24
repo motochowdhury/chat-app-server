@@ -1,8 +1,6 @@
 // Get Login Page
 function getLogin(req, res, next) {
-  res.render("login", {
-    title: "Login Chat_application",
-  });
+  res.render("login");
 }
 
 // Exports Modules
