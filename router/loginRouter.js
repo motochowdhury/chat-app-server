@@ -6,7 +6,7 @@ const router = express.Router();
 const { getLogin } = require("../controller/loginController");
 
 // Login Router
-router.get("/", loginController);
+router.get("/", getLogin);
 
 // Export Modules
 module.exports = router;
