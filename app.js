@@ -41,8 +41,8 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 
 // Routing Setup
 app.use("/", loginRouter);
-// app.use("/users", usersRouter);
-// app.use("/inbox", inboxRouter);
+app.use("/users", usersRouter);
+app.use("/inbox", inboxRouter);
 
 // 404 Not Found Handler
 app.use(notFoundghandler);
