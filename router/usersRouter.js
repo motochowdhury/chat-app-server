@@ -6,10 +6,14 @@ const router = express.Router();
 const { getUsers } = require("../controller/usersController");
 const dynamicTitle = require("../middlewares/common/dynamicTitle");
 const avatarUpload = require("../middlewares/users/avatarUpload");
+const {
+  addUserValidator,
+  addUserValidationHandler,
+} = require("../middlewares/users/usersValidator");
 
 // Login Router
 router.get("/", dynamicTitle("Inbox"), getUsers);
 
-router.post("/", avatarUpload);
+router.post("/", avatarUpload, addUserValidator, addUserValidationHandler);
 // Export Modules
 module.exports = router;
